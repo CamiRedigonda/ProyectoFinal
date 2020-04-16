@@ -1,0 +1,6 @@
+
+
+--> Para quitar la máscara gris con imagen rota al iniciar la app en un nevegador:
+Comentar las lineas 77 a 81 de /plugins/cordova-plugin-splashscreen/plugin.xml
+
+
