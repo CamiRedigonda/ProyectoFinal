@@ -37,103 +37,46 @@
         <div class="view view-main">
             <!-- Initial Page, "data-name" contains page name -->
             <div data-name="index" class="page">
-    
                 <!-- Top Navbar -->
                 <div class="navbar">
-                    <div class="navbar-bg"></div>
-                    <div class="navbar-inner">
-                        <div class="left"><i class="icon icon-back"></i></div>
-                        <div class="title">Page Title</div>
-                        <div class="right"><i class="icon icon-forward"></i></div>
-                    </div>
+                  <div class="navbar-bg"></div>
+                  <div class="navbar-inner">
+                    <div class="title">NombreApp </div>
+                  </div>
                 </div>
-        
-                <!-- Toolbar -->
-                <div class="toolbar toolbar-bottom">
-                    <div class="toolbar-inner">
-                    <!-- Toolbar links -->
-                    <a href="#" class="link">Link 1</a>
-                    <a href="#" class="link">Link 2</a>
-                    </div>
-                </div>
-        
-                <!-- Scrollable page content -->
-                <div class="page-content text-align-center">
-                    
-                    <div class="block">
-                    <h3>Contenido del Index</h3>
-                    <!-- Link to another page -->
-                    <a href="/about/" class="button button-round button-fill">Página About</a>
-
-
-                    <!-- EL POPUP -->
-                      <p><a href="#" data-popup=".my-popup" class="popup-open">Abrir Popup</a></p>
-
-                      <!-- 
-                        EL POPUP:
-                        - Ver que la relacion se propude con la clase .my-popup
-                        - El o los elementos que lo abren tienen la clase .popup-open y abrirá el popup definido en data-popup
-                        - El o los elementos que lo cierren tienen la clase popup-close y se cerrará a sí mismo. 
-                       -->
-                      <div class="popup my-popup">
-                        <div class="view">
-                          <div class="page">
-                            <div class="navbar">
-                              <div class="navbar-bg"></div>
-                              <div class="navbar-inner">
-                                <div class="title">Popup</div>
-                                <div class="right">
-                                  <!-- Link to close popup -->
-                                  <a class="link popup-close">Cerrar</a>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="page-content">
-                              Contenido del popup
-                            </div>
-                          </div>
+                <!--Termina top navbar-->
+                <div class="block-title">Floating Labels + Outline Inputs</div>
+                <div class="list no-hairlines-md">
+                  <ul>
+                    <li class="item-content item-input item-input-outline">
+                      <div class="item-media">
+                        <i class="icon demo-list-icon"></i>
+                      </div>
+                      <div class="item-inner">
+                        <div class="item-title item-floating-label">E-mail</div>
+                        <div class="item-input-wrap">
+                          <input type="email" placeholder="Your e-mail">
+                          <span class="input-clear-button"></span>
                         </div>
                       </div>
-
-
-
-                    <!-- EL POPUPOVER -->
-                        <!-- Similar al popup en programación. En lugar de popup va popover -->
-                        <p><a href="#" data-popover=".my-popover" class="popover-open">Abrir Popover</a></p>
-
-                        <!-- And somewhere in DOM -->
-                        <div class="popover my-popover">
-                          <div class="popover-inner block">
-                            <!-- Link to close popover -->
-                            <h4>Titulo</h4>
-                            <p>Texto 1</p>
-                            <p>Texto 2</p>
-                            <a class="link popover-close">Cerrar Popover</a>
-                          </div>
+                    </li>
+                    <li class="item-content item-input item-input-outline">
+                      <div class="item-media">
+                        <i class="icon demo-list-icon"></i>
+                      </div>
+                      <div class="item-inner">
+                        <div class="item-title item-floating-label">Password</div>
+                        <div class="item-input-wrap">
+                          <input type="password" placeholder="Your password">
+                          <span class="input-clear-button"></span>
                         </div>
-
-
-
-
-                    <!-- GRUPO DE BOTONES CON EVENTOS  -->
-                        <div class="block">
-                          <div class="row">
-                            <button id="btn_g1_1" class="col button button-outline tocaBoton">Botón 1</button>
-                            <button id="btn_g1_2" class="col button button-outline tocaBoton">Botón 2</button>
-                            <button id="btn_g1_3" class="col button button-outline tocaBoton">Botón 3</button>
-                          </div>
-                          <h3 id="msgBtn">Tocá un botón y te digo algo</h3>
-                        </div>
-
-
-
-
-
-
-                    </div>
+                      </div>
+                    </li>
+                  </ul>
                 </div>
+                <a href="/about/" class="button button-round button-fill">Iniciar sesion</a> 
             </div>
-        </div>
+        </div>    
     </div>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="lib/framework7/js/framework7.bundle.min.js"></script>
