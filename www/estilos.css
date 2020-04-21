@@ -4,19 +4,35 @@
 }
 .navbar-inner{
 	background-color: rgb( 32, 187, 122) !important;
-	height: 15vh;
-	padding-top: 10vw;
+	height: 30vw;
+	padding-top: 15vw;
+	color: rgb(255, 255, 255) !important;
+	font-size: 8vw !important;
 
 }
 .item-content, .item-input, .item-inner, .item-input-wrap, ul{
 	background-color: rgba( 32, 187, 122, 0.0)  !important;
+	color: rgb(255, 255, 255) !important;
 }
 .item-title{
-	font-size: 3vh !important;
-}
-.item-focused{
-	color: red !important;
+	font-size: 6vw !important;
 }
 li{
-	margin-bottom: 8vh !important;
+	margin-bottom: 15vw !important;
 }
+.input-focused, .item-input-focused, .active-state{
+	font-size: 6vw !important;
+	color: rgb(255, 255, 255) !important; 
+}
+.item-title, .item-label{
+	font-size: 6vw !important;
+	color: rgb(255, 255, 255) !important;	
+}
+input{
+	font-size: 6vw !important;
+	color: rgb(255, 255, 255) !important; 
+}
+.right, .left{
+	padding: 2vw;
+}
+

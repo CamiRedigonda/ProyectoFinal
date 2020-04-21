@@ -22,6 +22,10 @@ var app = new Framework7({
         path: '/principal/',
         url: 'principal.html',
       },
+      {
+        path: '/registro/',
+        url: 'registro.html',
+      },
     ]
     // ... other parameters
   });
@@ -31,9 +35,7 @@ var mainView = app.views.create('.view-main');
 
 // Handle Cordova Device Ready Event
 $$(document).on('deviceready', function() {
-    console.log("Device is ready!");
 
-    $$('.tocaBoton').on('click', fnTocaBoton);
 
 });
 
@@ -44,39 +46,13 @@ $$(document).on('page:init', function (e) {
 })
 
 // Option 2. Using live 'page:init' event handlers for each page
-$$(document).on('page:init', '.page[data-name="about"]', function (e) {
+$$(document).on('page:init', '.page[data-name="principal"]', function (e) {
     // Do something here when page with data-name="about" attribute loaded and initialized
     console.log(e);
 })
 
 
 /** FUNCIONES PROPIAS **/
-function fnTocaBoton() {
-    var mensaje = "";
-
-    idDelBoton = this.id;
-    mensaje = "Mi ID es: " + idDelBoton + "<br/>";
-
-    // voy a "separar" el valor del id, usando los guiones bajos
-    // el split separa un valor (en este caso una variable),
-    // usando el caracter o caracteres indicandos como parámetro
-    // el resultado es un array!
-    var partes = idDelBoton.split("_");
-
-    // sabiendo la forma: btn_g1_1 puedo tener:
-    p0 = partes[0];
-    p1 = partes[1];
-    p2 = partes[2];
-
-    mensaje += "Soy del Grupo: " + p1 + "<br/>";
-    mensaje += "Y tengo el nro: " + p2 + "<br/>";
-
-
-    $$('#msgBtn').html(mensaje);
-
-
-
-}
 
 
 
