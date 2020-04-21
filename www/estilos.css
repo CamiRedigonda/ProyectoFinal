@@ -1,0 +1,13 @@
+.page-content{
+	background-image: url(img/8.jpg) !important;
+	background-size: cover !important;
+}
+.navbar-inner{
+	background-color: rgb( 32, 187, 122) !important;
+	height: 15vh;
+	padding-top: 8vw;
+
+}
+.item-content, .item-input, .item-inner, .item-input-wrap{
+	background-color: rgba( 32, 187, 122, 0.35)  !important;
+}

@@ -3,6 +3,9 @@
 var $$ = Dom7;
 
 var app = new Framework7({
+    navbar: {
+        mdCenterTitle: true,
+    },
     // App root element
     root: '#app',
     // App Name
@@ -22,6 +25,7 @@ var app = new Framework7({
     ]
     // ... other parameters
   });
+
 
 var mainView = app.views.create('.view-main');
 
@@ -43,7 +47,6 @@ $$(document).on('page:init', function (e) {
 $$(document).on('page:init', '.page[data-name="about"]', function (e) {
     // Do something here when page with data-name="about" attribute loaded and initialized
     console.log(e);
-    alert('Hello');
 })
 
 
