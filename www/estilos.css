@@ -5,9 +5,18 @@
 .navbar-inner{
 	background-color: rgb( 32, 187, 122) !important;
 	height: 15vh;
-	padding-top: 8vw;
+	padding-top: 10vw;
 
 }
-.item-content, .item-input, .item-inner, .item-input-wrap{
-	background-color: rgba( 32, 187, 122, 0.35)  !important;
+.item-content, .item-input, .item-inner, .item-input-wrap, ul{
+	background-color: rgba( 32, 187, 122, 0.0)  !important;
+}
+.item-title{
+	font-size: 3vh !important;
+}
+.item-focused{
+	color: red !important;
+}
+li{
+	margin-bottom: 8vh !important;
 }
