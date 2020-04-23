@@ -1,5 +1,5 @@
 <!-- We don't need a full layout in this file because this page will be parsed with Ajax.  -->
-<div class="page" data-name="principal">
+<div class="page" data-name="registro">
 
     <!-- Top Navbar -->
     <div class="navbar">
@@ -25,7 +25,7 @@
                       <div class="item-inner">
                         <div class="item-title item-label">Nombre de usuario</div>
                         <div class="item-input-wrap">
-                          <input type="text" placeholder="Escribe tu nombre de usuario">
+                          <input type="text" id="nombre" placeholder="Escribe tu nombre de usuario">
                           <span class="input-clear-button"></span>
                         </div>
                       </div>
@@ -34,7 +34,7 @@
                       <div class="item-inner">
                         <div class="item-title item-label">E-mail</div>
                         <div class="item-input-wrap">
-                          <input type="email" placeholder="Escribe tu e-mail">
+                          <input type="email" id="mail" placeholder="Escribe tu e-mail">
                           <span class="input-clear-button"></span>
                         </div>
                       </div>
@@ -43,23 +43,14 @@
                       <div class="item-inner">
                         <div class="item-title item-label">Contraseña</div>
                         <div class="item-input-wrap">
-                          <input type="password" placeholder="Escribe tu contraseña">
-                          <span class="input-clear-button"></span>
-                        </div>
-                      </div>
-                    </li>
-                    <li class="item-content item-input">
-                      <div class="item-inner">
-                        <div class="item-title item-label">Confirmar contraseña</div>
-                        <div class="item-input-wrap">
-                          <input type="password" placeholder="Escribe tu contraseña">
+                          <input type="password" id="password" placeholder="Escribe tu contraseña">
                           <span class="input-clear-button"></span>
                         </div>
                       </div>
                     </li>
                   </ul>
                 </div>
-                <a href="/principal/" class="button button-round button-fill">Registrarse</a>
+                <a href="#" id="registro" class="button button-round button-fill">Registrarse</a>
             </div> 
         </div>    
     <!--Termina Formulario--> 

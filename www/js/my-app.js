@@ -26,33 +26,136 @@ var app = new Framework7({
         path: '/registro/',
         url: 'registro.html',
       },
+      {
+        path: '/index/',
+        url: 'index.html',
+      },
     ]
     // ... other parameters
   });
-
-
 var mainView = app.views.create('.view-main');
-
+var nombre, apellido , paginaweb , telefono , fnac , email;
+/* BASE DE DATOS */
+var db, refUsuarios, refTiposUsuarios;
 // Handle Cordova Device Ready Event
 $$(document).on('deviceready', function() {
-
-
+  /* seteo variables de BD */
+  db = firebase.firestore();
+  refUsuarios = db.collection("USUARIOS");
+  var iniciarDatos = 0;
+  if ( iniciarDatos == 1 ) {
+      fnIniciarDatos();
+  }
+    fnMostrarError("Device is ready!");
+    //$$('#registro').on('click', fnRegistro);
+    //$$('#login').on('click', fnLogin);
+    $$('#prueba').on('click', fnPruebaUsuario);
 });
 
 // Option 1. Using one 'page:init' handler for all pages
 $$(document).on('page:init', function (e) {
     // Do something here when page loaded and initialized
-    console.log(e);
+    fnMostrarError(e);
 })
-
 // Option 2. Using live 'page:init' event handlers for each page
 $$(document).on('page:init', '.page[data-name="principal"]', function (e) {
     // Do something here when page with data-name="about" attribute loaded and initialized
     console.log(e);
 })
+$$(document).on('page:init', '.page[data-name="registro"]', function (e) {
+    // Do something here when page with data-name="about" attribute loaded and initialized
+    $$('#registro').on('click', fnRegistro);
+    console.log(e);
+})
 
-
+$$(document).on('page:init', '.page[data-name="index"]', function (e) {
+    // Do something here when page with data-name="about" attribute loaded and initialized
+    // Inicio Panel
+    $$('#login').on('click', fnLogin);
+    fnMostrarError(e);
+})
 /** FUNCIONES PROPIAS **/
+
+/* MIS FUNCIONES */
+function fnRegistro() {
+    var elMail = $$('#mail').val();
+    var laClave = $$('#password').val(); 
+    email = elMail;
+    var huboError = 0;
+    firebase.auth().createUserWithEmailAndPassword(elMail, laClave)          
+      .catch(function(error) {       
+        // Handle Errors here.
+        huboError = 1;
+        var errorCode = error.code;
+        var errorMessage = error.message; 
+        fnMostrarError(errorCode);
+        fnMostrarError(errorMessage);
+      })
+      .then(function(){
+          if(huboError == 0){
+            mainView.router.navigate("/principal/");
+          }
+      });
+}
+function fnLogin() {
+    email = $$('#email').val();
+    var clave = $$('#clave').val();
+//Se declara la variable huboError (bandera)
+    var huboError = 0;
+    firebase.auth().signInWithEmailAndPassword(email, clave)
+        .catch(function(error){
+//Si hubo algun error, ponemos un valor referenciable en la variable huboError
+            huboError = 1;
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            fnMostrarError(errorMessage);
+            fnMostrarError(errorCode);
+        })
+        .then(function(){   
+//En caso de que esté correcto el inicio de sesión y no haya errores, se dirige a la siguiente página
+            if(huboError == 0){
+                // recuperar el tipo de usuario segun el email logueado....
+                // REF: https://firebase.google.com/docs/firestore/query-data/get-data
+                // TITULO: Obtén un documento
+                refUsuarios.doc(email).get().then(function(doc) {
+                    if (doc.exists) {
+                          //console.log("Document data:", doc.data());
+                          //console.log("Tipo de Usuario: " + doc.data().tipo );
+                          mainView.router.navigate("/principal/");
+                    } else {
+                          // doc.data() will be undefined in this case
+                          //console.log("No such document!");
+                    }
+                }).catch(function(error) {
+                    console.log("Error getting document:", error);
+                });
+            }
+        }); 
+}
+// function fnGuardarDP() {
+//   nombre = $$('#nombre').val();
+//   apellido = $$('#apellido').val();
+//   paginaweb = $$('#paginaweb').val();
+//   telefono = $$('#telefono').val();
+//   fnac = $$('#fnac').val();
+//   // clave: variable de datos
+//   var data = {
+//     nombre: nombre,
+//     apellido: apellido,
+//     web: paginaweb,
+//     telefono: telefono,
+//     fnac: fnac,
+//     tipo: "VIS"
+//   }
+//   refUsuarios.doc(email).set(data);
+// }
+
+function fnMostrarError(txt) {
+  if (mostrarErrores == 1) {
+      console.log("ERROR: " + txt);
+  }
+}
+
 
 
 

@@ -54,7 +54,7 @@
                               <div class="item-inner">
                                 <div class="item-title item-label">E-mail</div>
                                 <div class="item-input-wrap">
-                                  <input type="email" placeholder="Escribe tu e-mail">
+                                  <input type="email" id="email" placeholder="Escribe tu e-mail">
                                   <span class="input-clear-button"></span>
                                 </div>
                               </div>
@@ -63,24 +63,53 @@
                               <div class="item-inner">
                                 <div class="item-title item-label">Contraseña</div>
                                 <div class="item-input-wrap">
-                                  <input type="password" placeholder="Escribe tu contraseña">
+                                  <input type="password" id="clave" placeholder="Escribe tu contraseña">
                                   <span class="input-clear-button"></span>
                                 </div>
                               </div>
                             </li>
                           </ul>
                         </div>
-                        <a href="/principal/" class="button button-round button-fill">Iniciar sesion</a>
+                        <a href="#" id="login" class="button button-round button-fill">Iniciar sesion</a>
                         <a href="/registro/" class="button button-round button-fill">Registrarse</a>
                     </div> 
                 </div>    
             </div>   
         </div> 
     </div>
-    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-app.js"></script>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<!--
+<script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-auth.js"></script>
+-->
+<script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-auth.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-firestore.js"></script>
+
+
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyAf7ZvHtfEZMJJfzP0-AABmIXwyxQYqX7U",
+    authDomain: "proyecto-final-de493.firebaseapp.com",
+    databaseURL: "https://proyecto-final-de493.firebaseio.com",
+    projectId: "proyecto-final-de493",
+    storageBucket: "proyecto-final-de493.appspot.com",
+    messagingSenderId: "593323730515",
+    appId: "1:593323730515:web:c2a36d4d9d07b0726c08a6"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="lib/framework7/js/framework7.bundle.min.js"></script>
     <script type="text/javascript" src="js/my-app.js"></script>
+
+
 </body>
 
 </html>
