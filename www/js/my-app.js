@@ -35,6 +35,7 @@ var app = new Framework7({
   });
 var mainView = app.views.create('.view-main');
 var nombre, apellido , paginaweb , telefono , fnac , email;
+var mostrarErrores=1;
 /* BASE DE DATOS */
 var db, refUsuarios, refTiposUsuarios;
 // Handle Cordova Device Ready Event
@@ -49,7 +50,6 @@ $$(document).on('deviceready', function() {
     fnMostrarError("Device is ready!");
     //$$('#registro').on('click', fnRegistro);
     //$$('#login').on('click', fnLogin);
-    $$('#prueba').on('click', fnPruebaUsuario);
 });
 
 // Option 1. Using one 'page:init' handler for all pages
