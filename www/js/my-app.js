@@ -46,6 +46,7 @@ var nombre, apellido , paginaweb , telefono , fnac , email;
 var mostrarErrores=1;
 /* BASE DE DATOS */
 var db, refUsuarios, refTiposUsuarios;
+//var refTarjetas = db.collection("Tarjetas");
 // Handle Cordova Device Ready Event
 $$(document).on('deviceready', function() {
   /* seteo variables de BD */
@@ -96,18 +97,26 @@ function crearTarjeta(){
     var pregunta = $$('#preguntaTarjeta').val();
     var respuesta = $$('#respuestaTarjeta').val();
     contenido = {
+      email : email,
       pregunta: pregunta,
       respuesta: respuesta
+      
     }
+    db.collection("Tarjetas").get().then((snapshot) =>{
+      snapshot.docs.forEach(doc => {
+      console.log(doc.data())
+      }) 
+    })    
     // Add a new document in collection "cities"
     db.collection("Tarjetas").doc().set(contenido)
     .then(function() {
         console.log("Document successfully written!");
-        alert('Tarjeta guardada')
+        alert('Tarjeta guardada');
     })
     .catch(function(error) {
         console.error("Error writing document: ", error);
     });
+
 }
 function fnRegistro() {
     var elMail = $$('#emailRegistro').val();
@@ -126,14 +135,10 @@ function fnRegistro() {
       })
       .then(function(){
           if(huboError == 0){
-            alert('registro en auth ok');
-
             datos = {
               nombre: nombre
             }
-
             refUsuarios.doc(email).set(datos).then( function() {
-                alert("registro ok en bd.");
                 mainView.router.navigate("/principal/");
             })
           }

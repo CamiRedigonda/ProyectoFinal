@@ -44,3 +44,17 @@ input{
 #respuestaTarjeta{
 	height: : 100vw !important;
 }
+.swiper-slide{
+	height: : 100vw !important;
+}
+:root{
+	--f7-color-green: rgb( 32, 187, 122)  !important;
+	--f7-fab-size: 20vw !important;
+}
+.color-green {
+  --f7-theme-color: #20BB7A !important;
+  --f7-theme-color-rgb: 32, 187, 122 !important;
+}
+.button, .button-round, .button-fill{
+	margin-bottom: 15vw !important;
+}
