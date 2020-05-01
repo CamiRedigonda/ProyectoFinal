@@ -30,6 +30,14 @@ var app = new Framework7({
         path: '/index/',
         url: 'index.html',
       },
+      {
+        path: '/mensajes/',
+        url: 'mensajes.html',
+      },
+      {
+        path: '/tarjeta/',
+        url: 'tarjeta.html',
+      },
     ]
     // ... other parameters
   });
@@ -41,21 +49,22 @@ var db, refUsuarios, refTiposUsuarios;
 // Handle Cordova Device Ready Event
 $$(document).on('deviceready', function() {
   /* seteo variables de BD */
-  db = firebase.firestore();
-  refUsuarios = db.collection("USUARIOS");
+  
   var iniciarDatos = 0;
   if ( iniciarDatos == 1 ) {
       fnIniciarDatos();
   }
     fnMostrarError("Device is ready!");
-    //$$('#registro').on('click', fnRegistro);
-    //$$('#login').on('click', fnLogin);
 });
 
 // Option 1. Using one 'page:init' handler for all pages
 $$(document).on('page:init', function (e) {
     // Do something here when page loaded and initialized
     fnMostrarError(e);
+
+    db = firebase.firestore();
+    refUsuarios = db.collection("USUARIOS");
+
 })
 // Option 2. Using live 'page:init' event handlers for each page
 $$(document).on('page:init', '.page[data-name="principal"]', function (e) {
@@ -74,15 +83,39 @@ $$(document).on('page:init', '.page[data-name="index"]', function (e) {
     $$('#login').on('click', fnLogin);
     fnMostrarError(e);
 })
+$$(document).on('page:init', '.page[data-name="tarjeta"]', function (e) {
+    // Do something here when page with data-name="about" attribute loaded and initialized
+    // Inicio Panel
+    $$('#guardarTarjeta').on('click', crearTarjeta);
+    fnMostrarError(e);
+})
 /** FUNCIONES PROPIAS **/
 
 /* MIS FUNCIONES */
+function crearTarjeta(){
+    var pregunta = $$('#preguntaTarjeta').val();
+    var respuesta = $$('#respuestaTarjeta').val();
+    contenido = {
+      pregunta: pregunta,
+      respuesta: respuesta
+    }
+    // Add a new document in collection "cities"
+    db.collection("Tarjetas").doc().set(contenido)
+    .then(function() {
+        console.log("Document successfully written!");
+        alert('Tarjeta guardada')
+    })
+    .catch(function(error) {
+        console.error("Error writing document: ", error);
+    });
+}
 function fnRegistro() {
-    var elMail = $$('#mail').val();
-    var laClave = $$('#password').val(); 
+    var elMail = $$('#emailRegistro').val();
+    var laClave = $$('#claveRegistro').val(); 
+    var nombre = $$('#nombreRegistro').val();
     email = elMail;
     var huboError = 0;
-    firebase.auth().createUserWithEmailAndPassword(elMail, laClave)          
+    firebase.auth().createUserWithEmailAndPassword(email, laClave)          
       .catch(function(error) {       
         // Handle Errors here.
         huboError = 1;
@@ -93,13 +126,22 @@ function fnRegistro() {
       })
       .then(function(){
           if(huboError == 0){
-            mainView.router.navigate("/principal/");
+            alert('registro en auth ok');
+
+            datos = {
+              nombre: nombre
+            }
+
+            refUsuarios.doc(email).set(datos).then( function() {
+                alert("registro ok en bd.");
+                mainView.router.navigate("/principal/");
+            })
           }
       });
 }
 function fnLogin() {
-    email = $$('#email').val();
-    var clave = $$('#clave').val();
+    email = $$('#emailLogin').val();
+    var clave = $$('#claveLogin').val();
 //Se declara la variable huboError (bandera)
     var huboError = 0;
     firebase.auth().signInWithEmailAndPassword(email, clave)

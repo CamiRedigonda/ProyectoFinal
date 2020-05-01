@@ -13,6 +13,7 @@
 .item-content, .item-input, .item-inner, .item-input-wrap, ul{
 	background-color: rgba( 32, 187, 122, 0.0)  !important;
 	color: rgb(255, 255, 255) !important;
+	width: 90vw;
 }
 .item-title{
 	font-size: 6vw !important;
@@ -33,6 +34,13 @@ input{
 	color: rgb(255, 255, 255) !important; 
 }
 .right, .left{
-	padding: 2vw;
+	padding: 2vw !important;
 }
 
+.card{
+	padding: 0vw !important;
+	background-color: rgba( 32, 187, 122, 0.5)  !important;
+}
+#respuestaTarjeta{
+	height: : 100vw !important;
+}
