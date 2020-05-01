@@ -100,13 +100,7 @@ function crearTarjeta(){
       email : email,
       pregunta: pregunta,
       respuesta: respuesta
-      
     }
-    db.collection("Tarjetas").get().then((snapshot) =>{
-      snapshot.docs.forEach(doc => {
-      console.log(doc.data())
-      }) 
-    })    
     // Add a new document in collection "cities"
     db.collection("Tarjetas").doc().set(contenido)
     .then(function() {
@@ -116,8 +110,8 @@ function crearTarjeta(){
     .catch(function(error) {
         console.error("Error writing document: ", error);
     });
-
 }
+
 function fnRegistro() {
     var elMail = $$('#emailRegistro').val();
     var laClave = $$('#claveRegistro').val(); 
