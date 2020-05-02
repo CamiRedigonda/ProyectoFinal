@@ -42,10 +42,10 @@ input{
 	background-color: rgba( 32, 187, 122, 0.5)  !important;
 }
 #respuestaTarjeta{
-	height: : 100vw !important;
+	height:50vw !important;
 }
 .swiper-slide{
-	height: : 100vw !important;
+	height:100vw !important;
 }
 :root{
 	--f7-color-green: rgb( 32, 187, 122)  !important;

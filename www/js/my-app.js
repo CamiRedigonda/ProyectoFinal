@@ -77,10 +77,6 @@ $$(document).on('page:init', '.page[data-name="principal"]', function (e) {
     // Do something here when page with data-name="about" attribute loaded and initialized
     console.log(e);
     actualizarTarjetas();
-
-   
-    
-
 })
 $$(document).on('page:init', '.page[data-name="registro"]', function (e) {
     // Do something here when page with data-name="about" attribute loaded and initialized
@@ -118,56 +114,41 @@ function actualizarTarjetas() {
       crearEtiqueta(doc);
     })
   })
-   
 }
-
 var idTarjeta = '';
 function irATarjeta() {
-
   idTarjeta = this.id;
   console.log('irATarjeta: ' + idTarjeta);
   mainView.router.navigate("/verTarjeta/");
-
 }
-
 function cargarUnaTarjeta() {
   console.log('cargarUnaTarjeta: ' + idTarjeta);
+  db.collection('Tarjetas').doc(idTarjeta).get().then((doc) => {
+    var data = doc.data();
+    $$('#preguntaSwiper').html(data.pregunta);
+    $$('#respuestaSwiper').html(data.respuesta);
+  });
+
   $$('#idTarjeta').html(idTarjeta);
 }
-
-
-
 function crearEtiqueta(doc){
-  /*
-  let li = document.createElement('li');
-  let pregunta = document.createElement('span');
+  id = doc.id;
+  pregunta = doc.data().pregunta;
+  respuesta = doc.data().respuesta;
+  console.log(id);
+  console.log(pregunta);
 
-  li.setAttribute('data-id', doc.id);
-  //a.setAttribute('href', "tarjetas/"+doc.id);
-  pregunta.textContent= doc.data().pregunta;
+  tarjeta  = '<div class="card">';
+  tarjeta += '<div class="card-header">'+pregunta+'</div>';
+  tarjeta += '  <div class="card-content">';
+  tarjeta += '    <!-- Card content -->';
+  tarjeta += '  </div>';
+  tarjeta += '  <div class="card-footer"><a href="#" id="'+id+'" class="tarjeta">Ver más</a></div>';
+  tarjeta += '</div>';
 
-  li.appendChild(pregunta);
-  listaTarjetas.appendChild(li);
-  */
-
-id = doc.id;
-pregunta = doc.data().pregunta;
-console.log(id);
-console.log(pregunta);
-
-tarjeta  = '<div class="card">';
-tarjeta += '<div class="card-header">'+pregunta+'</div>';
-tarjeta += '  <div class="card-content">';
-tarjeta += '    <!-- Card content -->';
-tarjeta += '  </div>';
-tarjeta += '  <div class="card-footer"><a href="#" id="'+id+'" class="tarjeta">Ver más</a></div>';
-tarjeta += '</div>';
-
-$$('#listaTarjetas').append(tarjeta);
-
- $$('.tarjeta').on('click', irATarjeta);
+  $$('#listaTarjetas').append(tarjeta);
+  $$('.tarjeta').on('click', irATarjeta);
 }
-
 /* MIS FUNCIONES */
 function crearTarjeta(){
     var pregunta = $$('#preguntaTarjeta').val();
@@ -249,24 +230,6 @@ function fnLogin() {
             }
         }); 
 }
-// function fnGuardarDP() {
-//   nombre = $$('#nombre').val();
-//   apellido = $$('#apellido').val();
-//   paginaweb = $$('#paginaweb').val();
-//   telefono = $$('#telefono').val();
-//   fnac = $$('#fnac').val();
-//   // clave: variable de datos
-//   var data = {
-//     nombre: nombre,
-//     apellido: apellido,
-//     web: paginaweb,
-//     telefono: telefono,
-//     fnac: fnac,
-//     tipo: "VIS"
-//   }
-//   refUsuarios.doc(email).set(data);
-// }
-
 function fnMostrarError(txt) {
   if (mostrarErrores == 1) {
       console.log("ERROR: " + txt);
