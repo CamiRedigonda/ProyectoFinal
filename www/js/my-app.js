@@ -38,6 +38,11 @@ var app = new Framework7({
         path: '/tarjeta/',
         url: 'tarjeta.html',
       },
+      {
+        path: '/verTarjeta/',
+        url: 'verTarjeta.html',
+      },
+
     ]
     // ... other parameters
   });
@@ -72,6 +77,10 @@ $$(document).on('page:init', '.page[data-name="principal"]', function (e) {
     // Do something here when page with data-name="about" attribute loaded and initialized
     console.log(e);
     actualizarTarjetas();
+
+   
+    
+
 })
 $$(document).on('page:init', '.page[data-name="registro"]', function (e) {
     // Do something here when page with data-name="about" attribute loaded and initialized
@@ -91,6 +100,15 @@ $$(document).on('page:init', '.page[data-name="tarjeta"]', function (e) {
     $$('#guardarTarjeta').on('click', crearTarjeta);
     fnMostrarError(e);
 })
+
+$$(document).on('page:init', '.page[data-name="verTarjeta"]', function (e) {
+    // Do something here when page with data-name="about" attribute loaded and initialized
+    // Inicio Panel
+    cargarUnaTarjeta();
+    fnMostrarError(e);
+})
+
+
 /** FUNCIONES PROPIAS **/
 
 function actualizarTarjetas() {
@@ -100,8 +118,27 @@ function actualizarTarjetas() {
       crearEtiqueta(doc);
     })
   })
+   
 }
+
+var idTarjeta = '';
+function irATarjeta() {
+
+  idTarjeta = this.id;
+  console.log('irATarjeta: ' + idTarjeta);
+  mainView.router.navigate("/verTarjeta/");
+
+}
+
+function cargarUnaTarjeta() {
+  console.log('cargarUnaTarjeta: ' + idTarjeta);
+  $$('#idTarjeta').html(idTarjeta);
+}
+
+
+
 function crearEtiqueta(doc){
+  /*
   let li = document.createElement('li');
   let pregunta = document.createElement('span');
 
@@ -111,6 +148,24 @@ function crearEtiqueta(doc){
 
   li.appendChild(pregunta);
   listaTarjetas.appendChild(li);
+  */
+
+id = doc.id;
+pregunta = doc.data().pregunta;
+console.log(id);
+console.log(pregunta);
+
+tarjeta  = '<div class="card">';
+tarjeta += '<div class="card-header">'+pregunta+'</div>';
+tarjeta += '  <div class="card-content">';
+tarjeta += '    <!-- Card content -->';
+tarjeta += '  </div>';
+tarjeta += '  <div class="card-footer"><a href="#" id="'+id+'" class="tarjeta">Ver más</a></div>';
+tarjeta += '</div>';
+
+$$('#listaTarjetas').append(tarjeta);
+
+ $$('.tarjeta').on('click', irATarjeta);
 }
 
 /* MIS FUNCIONES */
