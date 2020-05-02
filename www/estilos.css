@@ -2,6 +2,7 @@
 	background-image: url(img/8.jpg) !important;
 	background-size: cover !important;
 }
+
 .navbar-inner{
 	background-color: rgb( 32, 187, 122) !important;
 	height: 30vw;
@@ -10,20 +11,18 @@
 	font-size: 8vw !important;
 
 }
-.item-content, .item-input, .item-inner, .item-input-wrap, ul{
-	background-color: rgba( 32, 187, 122, 0.0)  !important;
+ul{
+	background-color: rgba( 32, 187, 122, 0.8)  !important;
 	color: rgb(255, 255, 255) !important;
 	width: 90vw;
+	border-radius: 15px;
+	margin-bottom: 10vw !important;
 }
 .item-title{
 	font-size: 6vw !important;
 }
 li{
-	margin-bottom: 15vw !important;
-}
-.input-focused, .item-input-focused, .active-state{
-	font-size: 6vw !important;
-	color: rgb(255, 255, 255) !important; 
+	padding: 2vw !important;
 }
 .item-title, .item-label{
 	font-size: 6vw !important;
@@ -39,7 +38,7 @@ input{
 
 .card{
 	padding: 0vw !important;
-	background-color: rgba( 32, 187, 122, 0.5)  !important;
+	background-color: rgba( 32, 187, 122, 0.8)  !important;
 }
 #respuestaTarjeta{
 	height:50vw !important;
@@ -50,11 +49,20 @@ input{
 :root{
 	--f7-color-green: rgb( 32, 187, 122)  !important;
 	--f7-fab-size: 20vw !important;
+	--f7-button-text-transform: none !important;
+ 	--f7-input-info-text-color: rgba(0, 0, 0, 0.85) !important;
+ 	--f7-input-clear-button-color: rgba(0, 0, 0, 0.55) !important;
 }
-.color-green {
-  --f7-theme-color: #20BB7A !important;
-  --f7-theme-color-rgb: 32, 187, 122 !important;
+.button-raised, .button, .button-round, .button-fill{
+	margin: 8vw !important;
+	height: 15vw !important;
+	font-size: 6vw !important;
+	background-color: rgba( 32, 187, 122, 1)  !important;
 }
-.button, .button-round, .button-fill{
-	margin-bottom: 15vw !important;
+.tarjeta, .card{
+	background-color: rgba( 32, 187, 122, 0.8) !important;
+}
+a{
+	background-color: rgba( 32, 187, 122, 0.8) !important;
+	color: rgb(255, 255, 255) !important;
 }
