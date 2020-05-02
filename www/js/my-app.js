@@ -71,6 +71,7 @@ $$(document).on('page:init', function (e) {
 $$(document).on('page:init', '.page[data-name="principal"]', function (e) {
     // Do something here when page with data-name="about" attribute loaded and initialized
     console.log(e);
+    actualizarTarjetas();
 })
 $$(document).on('page:init', '.page[data-name="registro"]', function (e) {
     // Do something here when page with data-name="about" attribute loaded and initialized
@@ -91,6 +92,26 @@ $$(document).on('page:init', '.page[data-name="tarjeta"]', function (e) {
     fnMostrarError(e);
 })
 /** FUNCIONES PROPIAS **/
+
+function actualizarTarjetas() {
+  const listaTarjetas=document.querySelector('#listaTarjetas');
+  db.collection("Tarjetas").where("email", "==", email).get().then((snapshot) => {
+    snapshot.docs.forEach(doc =>{
+      crearEtiqueta(doc);
+    })
+  })
+}
+function crearEtiqueta(doc){
+  let li = document.createElement('li');
+  let pregunta = document.createElement('span');
+
+  li.setAttribute('data-id', doc.id);
+  //a.setAttribute('href', "tarjetas/"+doc.id);
+  pregunta.textContent= doc.data().pregunta;
+
+  li.appendChild(pregunta);
+  listaTarjetas.appendChild(li);
+}
 
 /* MIS FUNCIONES */
 function crearTarjeta(){
