@@ -132,8 +132,6 @@ function crearEtiqueta(doc){
   id = doc.id;
   pregunta = doc.data().pregunta;
   respuesta = doc.data().respuesta;
-  console.log(id);
-  console.log(pregunta);
 
   tarjeta  = '<div class="card">';
   tarjeta += '<div class="card-header">'+pregunta+'</div>';
@@ -160,6 +158,7 @@ function crearTarjeta(){
     .then(function() {
         console.log("Document successfully written!");
         alert('Tarjeta guardada');
+        actualizarTarjetas();
     })
     .catch(function(error) {
         console.error("Error writing document: ", error);
