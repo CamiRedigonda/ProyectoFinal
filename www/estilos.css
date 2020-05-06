@@ -83,6 +83,9 @@ a, .links2{
   background-color: rgba( 32, 187, 122) !important;
   color: rgb(255, 255, 255) !important;	
 }
+.boton{
+	padding-top: 1.5vw !important; 
+}
 .fab {
     position: fixed !important;
     bottom: 30px !important;
