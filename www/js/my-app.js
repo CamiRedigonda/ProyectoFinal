@@ -95,13 +95,23 @@ $$(document).on("page:init", '.page[data-name="tarjeta"]', function (e) {
 });
 
 $$(document).on("page:init", '.page[data-name="verTarjeta"]', function (e) {
-    // Do something here when page with data-name="about" attribute loaded and initialized
     // Inicio Panel
+    var singleSwiper = new Swiper(".single-swiper", {
+        speed: 400,
+        spaceBetween: 100,
+        effect: "flip",
+        allowTouchMove: false,
+    });
+    $$(".single-swiper-prev").on("click", function (e) {
+        singleSwiper.slidePrev();
+    });
+    $$(".single-swiper-next").on("click", function (e) {
+        singleSwiper.slideNext();
+    });
     cargarUnaTarjeta();
     fnMostrarError(e);
 });
 $$(document).on("page:init", '.page[data-name="prueba"]', function (e) {
-    // Do something here when page with data-name="about" attribute loaded and initialized
     console.log(e);
     var mySwiper = new Swiper(".swiper-prueba", {
         speed: 400,
