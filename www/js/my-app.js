@@ -38,6 +38,10 @@ var app = new Framework7({
             path: "/verTarjeta/",
             url: "verTarjeta.html",
         },
+        {
+            path: "/prueba/",
+            url: "prueba.html",
+        },
     ],
     // ... other parameters
 });
