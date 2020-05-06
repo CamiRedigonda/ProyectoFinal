@@ -100,6 +100,11 @@ $$(document).on("page:init", '.page[data-name="verTarjeta"]', function (e) {
     cargarUnaTarjeta();
     fnMostrarError(e);
 });
+$$(document).on("page:init", '.page[data-name="prueba"]', function (e) {
+    // Do something here when page with data-name="about" attribute loaded and initialized
+    console.log(e);
+    alert("Hola");
+});
 
 /** FUNCIONES PROPIAS **/
 
