@@ -1,107 +1,113 @@
-.page-content{
-	background-image: url(img/8.jpg) !important;
-	background-size: cover !important;
+.page-content {
+    background-image: url(img/8.jpg) !important;
+    background-size: cover !important;
 }
-.navbar-inner{
-	background-color: rgb( 32, 187, 122) !important;
-	height: 30vw;
-	padding-top: 15vw;
-	color: rgb(255, 255, 255) !important;
-	font-size: 8vw !important;
+.navbar-inner {
+    background-color: rgb(32, 187, 122) !important;
+    height: 30vw;
+    padding-top: 15vw;
+    color: rgb(255, 255, 255) !important;
+    font-size: 8vw !important;
+}
+ul {
+    background-color: rgba(32, 187, 122, 0) !important;
+    color: rgb(255, 255, 255) !important;
+    width: 90vw;
+    border-radius: 15px;
+    margin-bottom: 10vw !important;
+}
+.item-title {
+    font-size: 6vw !important;
+}
+li {
+    padding: 2vw !important;
+}
+.item-title,
+.item-label {
+    font-size: 6vw !important;
+    color: rgb(255, 255, 255) !important;
+}
+input,
+textarea {
+    font-size: 6vw !important;
+    color: rgb(255, 255, 255) !important;
+}
+.right,
+.left {
+    padding: 2vw !important;
+}
 
+.card {
+    padding: 0vw !important;
+    background-color: rgba(32, 187, 122, 0.8) !important;
+    border-radius: 18px !important;
 }
-ul{
-	background-color: rgba( 32, 187, 122, 0.0)  !important;
-	color: rgb(255, 255, 255) !important;
-	width: 90vw;
-	border-radius: 15px;
-	margin-bottom: 10vw !important;
+#respuestaTarjeta {
+    height: 50vw !important;
 }
-.item-title{
-	font-size: 6vw !important;
+.swiper-slide {
+    height: 102vw !important;
+    width: 82vw !important;
+    border-radius: 18px !important;
+    background-color: rgba(32, 187, 122, 1) !important;
+    font-size: 8vw !important;
+    padding: 4vw !important;
 }
-li{
-	padding: 2vw !important;
+.cuerpo {
+    height: 90vw !important;
+    background-color: rgb(253, 245, 230) !important;
+    border-radius: 18px !important;
 }
-.item-title, .item-label{
-	font-size: 6vw !important;
-	color: rgb(255, 255, 255) !important;	
+.desliza {
+    height: 10vw !important;
+    font-size: 5vw !important;
+    border-radius: 18px !important;
+    background-color: rgb(253, 245, 230) !important;
+    margin-top: 1vw !important;
 }
-input, textarea{
-	font-size: 6vw !important;
-	color: rgb(255, 255, 255) !important; 
+.block-strong {
+    background-color: rgba(32, 187, 122, 0) !important;
 }
-.right, .left{
-	padding: 2vw !important;
+:root {
+    --f7-fab-size: 20vw !important;
+    --f7-button-text-transform: none !important;
+    --f7-input-info-text-color: rgba(0, 0, 0, 0.95) !important;
+    --f7-input-clear-button-color: rgba(0, 0, 0, 0.55) !important;
 }
-
-.card{
-	padding: 0vw !important;
-	background-color: rgba( 32, 187, 122, 0.8)  !important;
-	border-radius: 18px !important;
+.button-raised,
+.button,
+.button-round,
+.button-fill {
+    margin: 8vw !important;
+    height: 15vw !important;
+    font-size: 6vw !important;
 }
-#respuestaTarjeta{
-	height:50vw !important;
+.tarjeta {
+    background-color: rgba(32, 187, 122, 0) !important;
+    color: rgb(255, 255, 255) !important;
+    border: hidden !important;
 }
-.swiper-slide{
-	height:102vw !important;
-	width: 82vw !important;
-	border-radius: 18px !important;
-	background-color:rgba(32, 187, 122, 1)  !important;
-	font-size: 8vw !important;
-	padding: 4vw !important;
+.card {
+    background-color: rgba(32, 187, 122, 0.8) !important;
 }
-.cuerpo{
-	height: 90vw !important;
-	background-color: rgb(253, 245, 230) !important;
-	border-radius: 18px !important;
+a,
+.links2 {
+    background-color: rgb(253, 245, 230) !important;
+    color: rgb(32, 187, 122) !important;
+    border: 3px solid rgb(32, 187, 122) !important;
 }
-.desliza{
-	height: 10vw !important;
-	font-size: 5vw !important;
-	border-radius: 18px !important; 
-	background-color: rgb(253, 245, 230) !important;
-	margin-top: 1vw !important;
+.links1 {
+    background-color: rgba(32, 187, 122) !important;
+    color: rgb(255, 255, 255) !important;
 }
-.block-strong{
-	background-color: rgba( 32, 187, 122, 0.0)  !important;
-}
-:root{
-	--f7-fab-size: 20vw !important;
-	--f7-button-text-transform: none !important;
- 	--f7-input-info-text-color: rgba(0, 0, 0, 0.95) !important;
- 	--f7-input-clear-button-color: rgba(0, 0, 0, 0.55) !important;
-}
-.button-raised, .button, .button-round, .button-fill{
-	margin: 8vw !important;
-	height: 15vw !important;
-	font-size: 6vw !important;
-}
-.tarjeta{
-	background-color: rgba( 32, 187, 122, 0.0) !important;
-	color: rgb( 255, 255, 255) !important;
-	border: hidden !important;
-}
-.card{
-	background-color: rgba( 32, 187, 122, 0.8) !important;
-}
-a, .links2{
-	background-color: rgb(253,245,230)!important;
-	color: rgb( 32, 187, 122) !important;
-	border: 3px solid rgb(32, 187, 122) !important;
-}
-.links1{
-  background-color: rgba( 32, 187, 122) !important;
-  color: rgb(255, 255, 255) !important;	
-}
-.boton{
-	padding-top: 1.5vw !important; 
+.boton {
+    padding-top: 1.5vw !important;
 }
 .fab {
     position: fixed !important;
     bottom: 30px !important;
     right: 30px !important;
 }
-.divFinal{
-	height: 30vw;
+.divFinal {
+    height: 30vw;
 }

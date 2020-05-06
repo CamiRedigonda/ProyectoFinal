@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <!--
+    <head>
+        <!--
         Customize this policy to fit your own app's needs. For more guidance, see:
             https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
         Some notes:
@@ -10,112 +10,146 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' 'unsafe-eval'; script-src * 'unsafe-inline' 'unsafe-eval'; connect-src * 'unsafe-inline'; img-src * data: blob: 'unsafe-inline'; frame-src *; style-src * 'unsafe-inline'; font-src * data: URIs ">
+        <meta
+            http-equiv="Content-Security-Policy"
+            content="default-src * 'unsafe-inline' 'unsafe-eval'; script-src * 'unsafe-inline' 'unsafe-eval'; connect-src * 'unsafe-inline'; img-src * data: blob: 'unsafe-inline'; frame-src *; style-src * 'unsafe-inline'; font-src * data: URIs "
+        />
 
-    <!-- Required meta tags-->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <!-- Color theme for statusbar -->
-    <meta name="theme-color" content="#2196f3">
-    <!-- Your app title -->
-    <title>My App</title>
-    <!-- Path to Framework7 Library CSS -->
-    <link rel="stylesheet" href="lib/framework7/css/framework7.bundle.min.css">
-    <!-- Path to icons -->
-    <link rel="stylesheet" href="css/icons.css">
-    <!-- Path to your custom app styles-->
-    <link rel="stylesheet" href="css/app.css">
-    <link rel="stylesheet" href="estilos.css">
-</head>
+        <!-- Required meta tags-->
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover"
+        />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <!-- Color theme for statusbar -->
+        <meta name="theme-color" content="#2196f3" />
+        <!-- Your app title -->
+        <title>My App</title>
+        <!-- Path to Framework7 Library CSS -->
+        <link
+            rel="stylesheet"
+            href="lib/framework7/css/framework7.bundle.min.css"
+        />
+        <!-- Path to icons -->
+        <link rel="stylesheet" href="css/icons.css" />
+        <!-- Path to your custom app styles-->
+        <link rel="stylesheet" href="css/app.css" />
+        <link rel="stylesheet" href="estilos.css" />
+    </head>
 
-<body>
-    <div id="app">
-        <!-- Statusbar overlay -->
-        <div class="statusbar"></div>
-    
-        <!-- Your main view, should have "view-main" class -->
-        <div class="view view-main">
-            <!-- Initial Page, "data-name" contains page name -->
-            <div data-name="index" class="page">
-                <!-- Top Navbar -->
-                <div class="navbar">
-                  <div class="navbar-bg"></div>
-                  <div class="navbar-inner">
-                    <div class="title">Mico</div>
-                  </div>
+    <body>
+        <div id="app">
+            <!-- Statusbar overlay -->
+            <div class="statusbar"></div>
+
+            <!-- Your main view, should have "view-main" class -->
+            <div class="view view-main">
+                <!-- Initial Page, "data-name" contains page name -->
+                <div data-name="index" class="page">
+                    <!-- Top Navbar -->
+                    <div class="navbar">
+                        <div class="navbar-bg"></div>
+                        <div class="navbar-inner">
+                            <div class="title">Mico</div>
+                        </div>
+                    </div>
+                    <!--Termina top navbar-->
+                    <div class="page-content text-align-center">
+                        <div class="block">
+                            <div class="list no-hairlines-md">
+                                <ul>
+                                    <li class="item-content item-input">
+                                        <div class="item-inner">
+                                            <div class="item-title item-label">
+                                                E-mail
+                                            </div>
+                                            <div class="item-input-wrap">
+                                                <input
+                                                    type="email"
+                                                    id="emailLogin"
+                                                    value="e@e.com"
+                                                    placeholder="Escribe tu e-mail"
+                                                />
+                                                <span
+                                                    class="input-clear-button"
+                                                ></span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="list no-hairlines-md">
+                                <ul>
+                                    <li class="item-content item-input">
+                                        <div class="item-inner">
+                                            <div class="item-title item-label">
+                                                Contraseña
+                                            </div>
+                                            <div class="item-input-wrap">
+                                                <input
+                                                    type="password"
+                                                    id="claveLogin"
+                                                    value="123123"
+                                                    placeholder="Escribe tu contraseña"
+                                                />
+                                                <span
+                                                    class="input-clear-button"
+                                                ></span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div id="error"></div>
+                            <a
+                                href="#"
+                                id="login"
+                                class="button button-raised button-round button-fill boton"
+                                >Iniciar sesion</a
+                            >
+                            <p>ó</p>
+                            <a
+                                href="/registro/"
+                                class="button button-raised button-round button-fill boton"
+                                >Registrarse</a
+                            >
+                        </div>
+                    </div>
                 </div>
-                <!--Termina top navbar-->
-                <div class="page-content text-align-center">
-                    <div class="block">
-                        <div class="list no-hairlines-md">
-                          <ul>
-                            <li class="item-content item-input">
-                              <div class="item-inner">
-                                <div class="item-title item-label">E-mail</div>
-                                <div class="item-input-wrap">
-                                  <input type="email" id="emailLogin" value="e@e.com" placeholder="Escribe tu e-mail">
-                                  <span class="input-clear-button"></span>
-                                </div>
-                              </div>
-                            </li>
-                          </ul>
-                        </div>
-                        <div class="list no-hairlines-md">
-                          <ul>
-                            <li class="item-content item-input">
-                              <div class="item-inner">
-                                <div class="item-title item-label">Contraseña</div>
-                                <div class="item-input-wrap">
-                                  <input type="password" id="claveLogin" value="123123" placeholder="Escribe tu contraseña">
-                                  <span class="input-clear-button"></span>
-                                </div>
-                              </div>
-                            </li>
-                          </ul>
-                        </div>
-                        <div id="error"></div>
-                        <a href="#" id="login" class="button button-raised button-round button-fill boton">Iniciar sesion</a>
-                        <p>ó</p>
-                        <a href="/registro/" class="button button-raised button-round button-fill boton">Registrarse</a>
-                    </div> 
-                </div>    
-            </div>   
-        </div> 
-    </div>
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
-<!-- TODO: Add SDKs for Firebase products that you want to use
+            </div>
+        </div>
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
+        <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
-<!--
+        <!--
 <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-auth.js"></script>
 -->
-<script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-auth.js"></script>
 
-<script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-firestore.js"></script>
 
+        <script>
+            // Your web app's Firebase configuration
+            var firebaseConfig = {
+                apiKey: "AIzaSyAf7ZvHtfEZMJJfzP0-AABmIXwyxQYqX7U",
+                authDomain: "proyecto-final-de493.firebaseapp.com",
+                databaseURL: "https://proyecto-final-de493.firebaseio.com",
+                projectId: "proyecto-final-de493",
+                storageBucket: "proyecto-final-de493.appspot.com",
+                messagingSenderId: "593323730515",
+                appId: "1:593323730515:web:c2a36d4d9d07b0726c08a6",
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+        </script>
 
-
-<script>
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyAf7ZvHtfEZMJJfzP0-AABmIXwyxQYqX7U",
-    authDomain: "proyecto-final-de493.firebaseapp.com",
-    databaseURL: "https://proyecto-final-de493.firebaseio.com",
-    projectId: "proyecto-final-de493",
-    storageBucket: "proyecto-final-de493.appspot.com",
-    messagingSenderId: "593323730515",
-    appId: "1:593323730515:web:c2a36d4d9d07b0726c08a6"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-</script>
-
-    <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="lib/framework7/js/framework7.bundle.min.js"></script>
-    <script type="text/javascript" src="js/my-app.js"></script>
-
-
-</body>
-
+        <script type="text/javascript" src="cordova.js"></script>
+        <script
+            type="text/javascript"
+            src="lib/framework7/js/framework7.bundle.min.js"
+        ></script>
+        <script type="text/javascript" src="js/my-app.js"></script>
+    </body>
 </html>
