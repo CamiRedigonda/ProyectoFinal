@@ -43,12 +43,6 @@ var app = new Framework7({
     ]
     // ... other parameters
   });
-var mySwiper = new Swiper('.swiper-container', {
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-});
 var mainView = app.views.create('.view-main');
 var nombre, apellido , paginaweb , telefono , fnac , email;
 var mostrarErrores=1;
@@ -58,7 +52,6 @@ var db, refUsuarios, refTiposUsuarios;
 // Handle Cordova Device Ready Event
 $$(document).on('deviceready', function() {
   /* seteo variables de BD */
-  
   var iniciarDatos = 0;
   if ( iniciarDatos == 1 ) {
       fnIniciarDatos();
@@ -112,6 +105,7 @@ $$(document).on('page:init', '.page[data-name="verTarjeta"]', function (e) {
 
 function actualizarTarjetas() {
   const listaTarjetas=document.querySelector('#listaTarjetas');
+  listaTarjetas.innerHTML="";
   db.collection("Tarjetas").where("email", "==", email).get().then((snapshot) => {
     snapshot.docs.forEach(doc =>{
       crearEtiqueta(doc);
@@ -161,14 +155,14 @@ function crearTarjeta(){
     }
     // Add a new document in collection "cities"
     db.collection("Tarjetas").doc().set(contenido)
-    .then(function() {
-        console.log("Document successfully written!");
-        alert('Tarjeta guardada');
-        actualizarTarjetas();
-    })
-    .catch(function(error) {
-        console.error("Error writing document: ", error);
-    });
+      .then(function() {
+          console.log("Document successfully written!");
+          //actualizarTarjetas();
+          mainView.router.navigate("/principal/");
+      })
+      .catch(function(error) {
+          console.error("Error writing document: ", error);
+      });
 }
 
 function fnRegistro() {
