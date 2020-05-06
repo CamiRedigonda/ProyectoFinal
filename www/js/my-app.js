@@ -43,6 +43,12 @@ var app = new Framework7({
     ]
     // ... other parameters
   });
+var mySwiper = new Swiper('.swiper-container', {
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+});
 var mainView = app.views.create('.view-main');
 var nombre, apellido , paginaweb , telefono , fnac , email;
 var mostrarErrores=1;

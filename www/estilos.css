@@ -44,13 +44,24 @@ input, textarea{
 	height:50vw !important;
 }
 .swiper-slide{
-	height:100vw !important;
-	width: 90vw !important;
+	height:102vw !important;
+	width: 82vw !important;
 	border-radius: 18px !important;
-	background-color: rgba( 32, 187, 122, 1)  !important;
-	font-size: 10vw !important;
-	padding: 2vw !important;
-
+	background-color:rgba(32, 187, 122, 1)  !important;
+	font-size: 8vw !important;
+	padding: 4vw !important;
+}
+.cuerpo{
+	height: 90vw !important;
+	background-color: rgb(253, 245, 230) !important;
+	border-radius: 18px !important;
+}
+.desliza{
+	height: 10vw !important;
+	font-size: 5vw !important;
+	border-radius: 18px !important; 
+	background-color: rgb(253, 245, 230) !important;
+	margin-top: 1vw !important;
 }
 .block-strong{
 	background-color: rgba( 32, 187, 122, 0.0)  !important;
