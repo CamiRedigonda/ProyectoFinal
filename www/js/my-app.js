@@ -164,7 +164,6 @@ function crearTarjeta(){
           console.error("Error writing document: ", error);
       });
 }
-
 function fnRegistro() {
     var elMail = $$('#emailRegistro').val();
     var laClave = $$('#claveRegistro').val(); 
