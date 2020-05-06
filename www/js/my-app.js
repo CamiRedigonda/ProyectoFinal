@@ -103,7 +103,18 @@ $$(document).on("page:init", '.page[data-name="verTarjeta"]', function (e) {
 $$(document).on("page:init", '.page[data-name="prueba"]', function (e) {
     // Do something here when page with data-name="about" attribute loaded and initialized
     console.log(e);
-    alert("Hola");
+    var mySwiper = new Swiper(".swiper-prueba", {
+        speed: 400,
+        spaceBetween: 100,
+        effect: "flip",
+        allowTouchMove: false,
+    });
+    $$(".swiper-button-prev").on("click", function (e) {
+        mySwiper.slidePrev();
+    });
+    $$(".swiper-button-next").on("click", function (e) {
+        mySwiper.slideNext();
+    });
 });
 
 /** FUNCIONES PROPIAS **/
