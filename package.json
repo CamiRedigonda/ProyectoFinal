@@ -5,7 +5,12 @@
   "cordova": {
     "plugins": {
       "cordova-plugin-whitelist": {}
-    }
+    },
+    "platforms": [
+      "browser"
+    ]
   },
-  "dependencies": {}
+  "dependencies": {
+    "cordova-browser": "^6.0.0"
+  }
 }
