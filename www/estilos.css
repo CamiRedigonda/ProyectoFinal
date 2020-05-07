@@ -9,6 +9,13 @@
     color: rgb(255, 255, 255) !important;
     font-size: 8vw !important;
 }
+.toolbar-inner{
+    color: rgb(255, 255, 255) !important;
+    font-size: 6vw !important;
+    padding: 2vw !important;
+    background-color: rgb(32, 187, 122) !important;
+    height: 26vw;
+}
 ul {
     background-color: rgba(32, 187, 122, 0) !important;
     color: rgb(255, 255, 255) !important;
@@ -54,16 +61,25 @@ textarea {
     padding: 4vw !important;
 }
 .cuerpo {
-    height: 90vw !important;
+    height: 82vw !important;
     background-color: rgb(253, 245, 230) !important;
     border-radius: 18px !important;
+    margin-bottom: 1vw !important;
+    padding: 2vw !important;
 }
 .desliza {
-    height: 10vw !important;
-    font-size: 5vw !important;
-    border-radius: 18px !important;
+    text-align: center !important;
+    width: 41vw !important;
+    height: 12vw !important;
+    padding-top: 2vw !important;
+    font-size: 6vw !important;
+    border-radius: 25px !important;
+    color: rgb(32, 187, 122) !important;
     background-color: rgb(253, 245, 230) !important;
     margin-top: 1vw !important;
+    margin-left: 20vw;
+    border: 3px solid rgb(32, 187, 122) !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 .block-strong {
     background-color: rgba(32, 187, 122, 0) !important;
@@ -71,8 +87,10 @@ textarea {
 :root {
     --f7-fab-size: 20vw !important;
     --f7-button-text-transform: none !important;
-    --f7-input-info-text-color: rgba(0, 0, 0, 0.95) !important;
+    --f7-input-info-text-color: rgb(0, 0, 0) !important;
     --f7-input-clear-button-color: rgba(0, 0, 0, 0.55) !important;
+    --f7-input-focused-border-color: rgb(32, 187, 122) !important;
+    --f7-input-placeholder-color: rgba(0, 0, 0, 0.70) !important;
 }
 .button-raised,
 .button,
