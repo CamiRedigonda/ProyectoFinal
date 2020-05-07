@@ -157,6 +157,9 @@ function cargarSlide() {
                 $$(".single-swiper-next").on("click", function (e) {
                     singleSwiper.slideNext();
                 });
+                $$(".swiper-prueba-next").on("click", function (e) {
+                    singleSwiper.slidePrev();
+                });
             });
         });
 }
