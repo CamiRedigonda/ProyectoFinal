@@ -113,22 +113,69 @@ $$(document).on("page:init", '.page[data-name="verTarjeta"]', function (e) {
 });
 $$(document).on("page:init", '.page[data-name="prueba"]', function (e) {
     console.log(e);
-    var mySwiper = new Swiper(".swiper-prueba", {
-        speed: 400,
-        spaceBetween: 100,
-        effect: "flip",
-        allowTouchMove: false,
-    });
-    $$(".swiper-button-prev").on("click", function (e) {
-        mySwiper.slidePrev();
-    });
-    $$(".swiper-button-next").on("click", function (e) {
-        mySwiper.slideNext();
-    });
+    cargarSlide();
+
 });
 
 /** FUNCIONES PROPIAS **/
+function cargarSlide() {
 
+    db.collection("Tarjetas")
+        .where("email", "==", email)
+        .get()
+        .then((snapshot) => {
+            snapshot.docs.forEach((doc) => {
+                crearSlide(doc);
+            });
+        });
+}
+function crearSlide(doc) {
+    id = doc.id;
+    pregunta = doc.data().pregunta;
+    respuesta = doc.data().respuesta;
+    var singleSwiper = new Swiper(".single-swiper", {
+        speed: 400,
+        spaceBetween: 10,
+        effect: "flip",
+        allowTouchMove: true,
+        nested: true,
+    });
+    var mySwiper = new Swiper(".swiper-prueba", {
+        speed: 400,
+        spaceBetween: 10,
+        effect: "overflow",
+        allowTouchMove: false,
+    });
+    slider = '<div class="swiper-slide">';
+    slider +='<div class="swiper-container single-swiper">';
+    slider +='<div class="swiper-wrapper">';
+    slider +='<div class="swiper-slide slidepyr">';
+    slider +='<div class="cuerpo">'+pregunta+'</div>';
+    slider +='<div class="single-swiper-next desliza" id="respuesta'+id+'">Respuesta</div>';
+    slider +='</div>';
+    slider +='<div class="swiper-slide slidepyr">';
+    slider +='<div class="cuerpo">'+respuesta+'</div>';
+    slider +='<div class="single-swiper-prev desliza" id="pregunta'+id+'">Pregunta';
+    slider +='</div>';
+    slider +='</div>';
+    slider +='</div>';   
+    slider +='</div>';
+    slider +='</div>';
+
+    $$("#slider").append(slider);
+    $$(".swiper-prueba-prev").on("click", function (e) {
+        mySwiper.slidePrev();
+    });
+    $$(".swiper-prueba-next").on("click", function (e) {
+        mySwiper.slideNext();
+    });
+    $$("single-swiper-prev").on("click", function (e) {
+        singleSwiper.slidePrev();
+    });
+    $$(".single-swiper-next").on("click", function (e) {
+        singleSwiper.slideNext();
+    });
+}
 function actualizarTarjetas() {
     const listaTarjetas = document.querySelector("#listaTarjetas");
     listaTarjetas.innerHTML = "";
